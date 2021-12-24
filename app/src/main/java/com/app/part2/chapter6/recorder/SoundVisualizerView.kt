@@ -80,8 +80,13 @@ class SoundVisualizerView(
         this.isReplaying = isReplaying
         handler?.post(visualizeRepeatAction)
     }
-    fun stopVisualiszing() {
+    fun stopVisualizing() {
+        replayingPosition = 0
         handler?.removeCallbacks(visualizeRepeatAction)
+    }
+    fun clearVisualization() {
+        drawingAmplitudes = emptyList()
+        invalidate()
     }
     companion object {
         private const val LINE_WIDTH = 10F
